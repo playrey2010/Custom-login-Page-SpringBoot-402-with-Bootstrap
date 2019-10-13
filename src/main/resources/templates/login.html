@@ -80,40 +80,49 @@
 </head>
 
 <body>
-<div class="jumbotron">
-    <h1 class="display-4" style="text-align: center">Login Form</h1>
-    <div th:if="${param.error}">
-        Invalid username or password
+<div class="row">
+    <div class="col-4">
     </div>
-    <div th:if="${param.logout}">
-        You have been logged out
+    <div class="col-4">
+        <div class="jumbotron">
+            <h1 class="display-4" style="text-align: center">Login Form</h1>
+            <div th:if="${param.error}">
+                Invalid username or password
+            </div>
+            <div th:if="${param.logout}">
+                You have been logged out
+            </div>
+            <div class="card" style="width: 18rem;">
+                <form th:action="@{/login}" method="post">
+                    <div class="imgcontainer">
+                        <img src="https://www.w3schools.com/howto/img_avatar2.png" alt="Avatar" class="avatar">
+                    </div>
+
+                    <div class="container">
+                        <label><b>Username</b></label>
+                        <input type="text" placeholder="Enter Username" name="username">
+
+                        <label><b>Password</b></label>
+                        <input type="password" placeholder="Enter Password" name="password">
+
+                        <button type="submit">Login</button>
+                        <label>
+                            <input type="checkbox" checked="checked" name="remember"> Remember me
+                        </label>
+                    </div>
+
+                    <div class="container" style="background-color:#f1f1f1">
+                        <button type="button" class="cancelbtn">Cancel</button>
+                        <span class="psw">Forgot <a href="#">password?</a></span>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
-    <div class="card" style="width: 18rem;">
-        <form th:action="@{/login}" method="post">
-            <div class="imgcontainer">
-                <img src="https://www.w3schools.com/howto/img_avatar2.png" alt="Avatar" class="avatar">
-            </div>
-
-            <div class="container">
-                <label><b>Username</b></label>
-                <input type="text" placeholder="Enter Username" name="username">
-
-                <label><b>Password</b></label>
-                <input type="password" placeholder="Enter Password" name="password">
-
-                <button type="submit">Login</button>
-                <label>
-                    <input type="checkbox" checked="checked" name="remember"> Remember me
-                </label>
-            </div>
-
-            <div class="container" style="background-color:#f1f1f1">
-                <button type="button" class="cancelbtn">Cancel</button>
-                <span class="psw">Forgot <a href="#">password?</a></span>
-            </div>
-        </form>
+    <div class="col-4">
     </div>
 </div>
+
 
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
